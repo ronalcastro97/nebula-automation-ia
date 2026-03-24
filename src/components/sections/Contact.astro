@@ -2,173 +2,133 @@
 import ContactForm from '../react/ContactForm.tsx';
 ---
 
-<section id="contacto" class="section contact-section">
-  <!-- Background decoration -->
-  <div class="contact-glow" aria-hidden="true"></div>
-
-  <div class="container">
-    <h2 class="section-title reveal">
-      Comienza <span class="gradient-text">Hoy</span>
+<section id="contacto" class="sec contact-sec">
+  <div class="blob-contact" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-tag reveal" style="margin-inline:auto"><span></span>Contacto</div>
+    <h2 class="sec-h reveal">
+      Comienza <span class="grad">hoy mismo</span>
     </h2>
-    <p class="section-subtitle reveal">
-      Cuéntanos sobre tu negocio y te mostramos cómo podemos automatizarlo
+    <p class="sec-sub reveal">
+      Cuéntanos sobre tu negocio y en menos de 24 horas te proponemos cómo automatizarlo — gratis, sin compromiso.
     </p>
 
-    <div class="contact-layout">
-      <!-- Info side -->
-      <div class="contact-info reveal">
-        <h3 class="info-title">¿Listo para automatizar?</h3>
-        <p class="info-text">
-          Nuestro equipo analizará tu caso de forma gratuita y te propondrá la solución
-          ideal para tu negocio. Sin compromiso.
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="ci reveal">
+        <h3 class="ci-title">¿Listo para automatizar?</h3>
+        <p class="ci-text">
+          Nuestro equipo analiza tu caso personalmente y te entrega una propuesta clara con los flujos de automatización ideales para tu operación.
         </p>
 
-        <ul class="info-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Consultoría inicial gratuita</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Respuesta en menos de 24 horas</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Propuesta personalizada para tu negocio</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Sin contratos de largo plazo al inicio</span>
-          </li>
+        <ul class="ci-list">
+          {[
+            'Consultoría inicial 100% gratuita',
+            'Respuesta en menos de 24 horas',
+            'Propuesta personalizada para tu negocio',
+            'Sin contratos de largo plazo al inicio',
+          ].map(item => (
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {item}
+            </li>
+          ))}
         </ul>
 
-        <div class="contact-direct">
-          <p class="direct-label">O escríbenos directamente:</p>
-          <a href="mailto:hola@nebulaautomation.ia" class="direct-email">
-            hola@nebulaautomation.ia
-          </a>
+        <!-- Mini testimonial -->
+        <div class="testimonial">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"Redujimos 15 horas semanales de trabajo manual en solo 3 días de implementación."</p>
+          <div class="test-author">
+            <div class="test-avatar">MR</div>
+            <div>
+              <span class="test-name">María Rodríguez</span>
+              <span class="test-role">Gerente de Operaciones</span>
+            </div>
+          </div>
         </div>
+
+        <a href="mailto:hola@nebulaautomation.ia" class="ci-email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hola@nebulaautomation.ia
+        </a>
       </div>
 
-      <!-- Form side (React island) -->
-      <div class="contact-form-wrap reveal" style="--delay: 150ms">
-        <ContactForm client:load />
+      <!-- Form -->
+      <div class="cf-wrap reveal" style="--delay:150ms">
+        <div class="cf-inner">
+          <ContactForm client:load />
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .contact-section {
-    padding-block: var(--space-2xl);
-    position: relative;
-    overflow: hidden;
+  .contact-sec { position:relative; overflow:hidden; }
+  .blob-contact {
+    position:absolute; width:700px; height:500px;
+    background:radial-gradient(ellipse, rgba(139,92,246,.07) 0%, transparent 70%);
+    bottom:-10%; left:50%; transform:translateX(-50%);
+    pointer-events:none;
   }
 
-  .contact-glow {
-    position: absolute;
-    bottom: -20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80vw;
-    height: 60vh;
-    background: radial-gradient(ellipse, oklch(0.55 0.28 295 / 0.08), transparent 70%);
-    pointer-events: none;
+  .contact-grid {
+    display:grid; grid-template-columns:1fr; gap:2rem;
+    position:relative; z-index:1;
   }
+  @media(min-width:900px){ .contact-grid{ grid-template-columns:1fr 1.3fr; align-items:start; } }
 
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    position: relative;
-    z-index: 1;
+  /* Info side */
+  .ci-title {
+    font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800;
+    margin-bottom:.75rem;
   }
+  .ci-text {
+    font-size:.9rem; color:var(--gray-1); line-height:1.75; margin-bottom:1.75rem;
+  }
+  .ci-list { list-style:none; display:flex; flex-direction:column; gap:.75rem; margin-bottom:2rem; }
+  .ci-list li {
+    display:flex; align-items:center; gap:.6rem;
+    font-size:.9rem; color:var(--gray-1);
+  }
+  .ci-list li svg { color:#8b5cf6; flex-shrink:0; }
 
-  @media (min-width: 900px) {
-    .contact-layout {
-      grid-template-columns: 1fr 1.4fr;
-      align-items: start;
-    }
+  /* Testimonial */
+  .testimonial {
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-left:3px solid #8b5cf6;
+    border-radius:12px;
+    padding:1.25rem;
+    margin-bottom:1.75rem;
   }
+  .test-stars { color:#f59e0b; font-size:.9rem; margin-bottom:.5rem; letter-spacing:.05em; }
+  .test-text { font-size:.85rem; color:var(--gray-1); line-height:1.65; margin-bottom:1rem; font-style:italic; }
+  .test-author { display:flex; align-items:center; gap:.75rem; }
+  .test-avatar {
+    width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(135deg,#8b5cf6,#ec4899);
+    display:flex; align-items:center; justify-content:center;
+    font-size:.7rem; font-weight:700; color:#fff; flex-shrink:0;
+  }
+  .test-name { display:block; font-size:.82rem; font-weight:600; }
+  .test-role { font-size:.72rem; color:var(--gray-2); }
 
-  /* Info */
-  .info-title {
-    font-size: var(--text-2xl);
-    font-weight: 800;
-    margin-bottom: var(--space-md);
+  .ci-email {
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-size:.875rem; color:#22d3ee; font-weight:500;
+    transition:color var(--t);
   }
-
-  .info-text {
-    font-size: var(--text-base);
-    color: var(--clr-text-secondary);
-    line-height: 1.7;
-    margin-bottom: var(--space-xl);
-  }
-
-  .info-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
-  }
-
-  .info-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: var(--text-base);
-    color: var(--clr-text-secondary);
-  }
-
-  .info-list li svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    color: oklch(0.68 0.22 295);
-  }
-
-  .contact-direct {
-    padding: var(--space-lg);
-    border-radius: 12px;
-    background: oklch(0.14 0.04 275 / 0.5);
-    border: 1px solid oklch(0.55 0.28 295 / 0.15);
-  }
-
-  .direct-label {
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--clr-text-muted);
-    margin-bottom: var(--space-xs);
-    font-weight: 600;
-  }
-
-  .direct-email {
-    font-size: var(--text-base);
-    color: var(--clr-nebula-cyan);
-    font-weight: 600;
-    transition: color var(--t-fast);
-  }
-
-  .direct-email:hover {
-    color: oklch(0.85 0.12 200);
-  }
+  .ci-email:hover { color:#67e8f9; }
 
   /* Form wrapper */
-  .contact-form-wrap {
-    background: oklch(0.12 0.03 275 / 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid oklch(0.55 0.28 295 / 0.15);
-    border-radius: 20px;
-    padding: var(--space-xl);
+  .cf-wrap { transition-delay: var(--delay,0ms); }
+  .cf-inner {
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:clamp(1.5rem,3vw,2rem);
+    backdrop-filter:blur(20px);
   }
 </style>

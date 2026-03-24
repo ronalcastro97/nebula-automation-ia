@@ -2,81 +2,45 @@
 import CounterAnimate from '../react/CounterAnimate.tsx';
 
 const benefits = [
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-    </svg>`,
-    title: 'Ahorra tiempo y dinero',
-    desc: 'Elimina horas de trabajo manual y reduce costos operativos desde el primer día.',
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-    </svg>`,
-    title: 'Sin conocimientos técnicos',
-    desc: 'Nosotros lo configuramos todo. Tú solo disfrutas de los resultados.',
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
-    </svg>`,
-    title: 'Resultados medibles',
-    desc: 'Métricas claras desde el primer día. Ves exactamente cuánto estás ahorrando.',
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-    </svg>`,
-    title: 'Escalable con tu negocio',
-    desc: 'Las automatizaciones crecen junto contigo. Sin límites, sin fricciones.',
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>`,
-    title: 'Soporte incluido',
-    desc: 'Mantenimiento y optimización continua. Estamos contigo en cada paso.',
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-    </svg>`,
-    title: 'Integración total',
-    desc: 'Compatible con tus herramientas actuales: Google Workspace, Excel, CRMs y más.',
-  },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, title:'Ahorra tiempo y dinero', desc:'Reduce horas de trabajo manual y costos operativos desde el primer día.' },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, title:'Sin conocimientos técnicos', desc:'Nosotros configuramos todo. Tú solo disfrutas los resultados.' },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`, title:'Resultados medibles', desc:'Métricas claras desde el día 1. Ves exactamente cuánto estás ahorrando.' },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`, title:'Escalable contigo', desc:'Las automatizaciones crecen con tu negocio. Sin límites ni fricciones.' },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`, title:'Soporte incluido', desc:'Mantenimiento y optimización continua. Siempre contigo.' },
+  { icon:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`, title:'Integración total', desc:'Compatible con Google Workspace, Excel, WhatsApp, CRMs y más.' },
 ];
 ---
 
-<section id="beneficios" class="section ben-section">
-  <div class="container">
-    <h2 class="section-title reveal">
-      Por Qué <span class="gradient-text">Elegirnos</span>
+<section id="beneficios" class="sec ben">
+  <div class="wrap">
+    <div class="sec-tag reveal"><span></span>Beneficios</div>
+    <h2 class="sec-h reveal">
+      Por qué <span class="grad">elegirnos</span>
     </h2>
-    <p class="section-subtitle reveal">
+    <p class="sec-sub reveal">
       Resultados reales para negocios que quieren crecer sin perder el tiempo
     </p>
 
-    <!-- Stat counters (React island) -->
-    <div class="stats-row reveal">
+    <!-- Counters -->
+    <div class="reveal counter-wrap">
       <CounterAnimate
         stats={[
-          { value: '24/7', label: 'Disponibilidad continua', isText: true },
-          { value: 80, suffix: '%', label: 'Reducción de tareas manuales' },
-          { value: 48, suffix: 'h', label: 'Tiempo de implementación' },
+          { value:'24/7', label:'Disponibilidad continua', isText:true },
+          { value:80, suffix:'%', label:'Menos tareas manuales' },
+          { value:48, suffix:'h', label:'Tiempo de implementación' },
         ]}
         client:visible
       />
     </div>
 
     <!-- Benefits grid -->
-    <div class="benefits-grid">
+    <div class="ben-grid">
       {benefits.map((b, i) => (
-        <div class="benefit-card reveal" style={`--delay: ${i * 80}ms`}>
-          <div class="benefit-icon" set:html={b.icon} />
+        <div class="ben-card reveal" style={`--delay:${i*70}ms`}>
+          <div class="ben-icon" set:html={b.icon} />
           <div>
-            <h3 class="benefit-title">{b.title}</h3>
-            <p class="benefit-desc">{b.desc}</p>
+            <h3 class="ben-title">{b.title}</h3>
+            <p class="ben-desc">{b.desc}</p>
           </div>
         </div>
       ))}
@@ -85,73 +49,34 @@ const benefits = [
 </section>
 
 <style>
-  .ben-section {
-    padding-block: var(--space-2xl);
+  .ben { position:relative; }
+  .counter-wrap { margin-bottom: clamp(2rem,5vw,3.5rem); }
+  .ben-grid {
+    display:grid; grid-template-columns:1fr; gap:1rem;
   }
+  @media(min-width:640px){ .ben-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:1024px){ .ben-grid{ grid-template-columns:repeat(3,1fr); } }
 
-  /* Stats row */
-  .stats-row {
-    margin-bottom: var(--space-2xl);
-  }
-
-  /* Benefits grid */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  @media (min-width: 640px) {
-    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (min-width: 1024px) {
-    .benefits-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .benefit-card {
-    display: flex;
-    gap: var(--space-md);
-    align-items: flex-start;
-    padding: var(--space-lg);
-    border-radius: 12px;
-    background: oklch(0.12 0.03 275 / 0.5);
-    border: 1px solid oklch(0.55 0.28 295 / 0.08);
-    transition: border-color var(--t-base), background var(--t-base);
+  .ben-card {
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:1.4rem 1.3rem;
+    border-radius:16px;
+    background:var(--bg-card); border:1px solid var(--border);
+    transition: border-color var(--t), background var(--t), transform var(--t);
     transition-delay: var(--delay, 0ms);
   }
-
-  .benefit-card:hover {
-    border-color: oklch(0.55 0.28 295 / 0.25);
-    background: oklch(0.14 0.04 275 / 0.6);
+  .ben-card:hover {
+    border-color:rgba(139,92,246,.3); background:rgba(139,92,246,.05);
+    transform:translateY(-3px);
   }
-
-  .benefit-icon {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: oklch(0.55 0.28 295 / 0.12);
-    color: oklch(0.68 0.22 295);
+  .ben-icon {
+    width:42px; height:42px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:10px;
+    background:rgba(139,92,246,.12); border:1px solid rgba(139,92,246,.2);
+    color:#a78bfa;
   }
-
-  .benefit-icon :global(svg) {
-    width: 20px;
-    height: 20px;
-  }
-
-  .benefit-title {
-    font-size: var(--text-base);
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-  .benefit-desc {
-    font-size: var(--text-sm);
-    color: var(--clr-text-secondary);
-    line-height: 1.6;
-  }
+  .ben-icon :global(svg){ width:20px; height:20px; }
+  .ben-title { font-size:.95rem; font-weight:700; margin-bottom:4px; color:var(--white); }
+  .ben-desc  { font-size:.82rem; color:var(--gray-1); line-height:1.65; }
 </style>

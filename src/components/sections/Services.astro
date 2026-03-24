@@ -1,59 +1,74 @@
 ---
 const services = [
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-      <line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/>
-    </svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>`,
+    color: '#8b5cf6', colorAlpha: 'rgba(139,92,246,.12)', colorBorder: 'rgba(139,92,246,.3)',
+    tag: 'Datos',
     title: 'Automatización de Datos',
-    description: 'Organiza archivos, categoriza información, limpia y estructura hojas de cálculo de forma automática. Di adiós al trabajo manual repetitivo.',
-    color: 'violet',
+    description: 'Organiza archivos, categoriza información y limpia hojas de cálculo automáticamente. Elimina el 90% del trabajo manual repetitivo.',
+    features: ['Organización automática', 'Limpieza de datos', 'Reportes automáticos'],
+    size: 'large',
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      <circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/>
-    </svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>`,
+    color: '#ec4899', colorAlpha: 'rgba(236,72,153,.12)', colorBorder: 'rgba(236,72,153,.3)',
+    tag: 'Chatbots',
     title: 'Chatbots Empresariales',
-    description: 'Chatbots que gestionan citas, ventas, compras y bases de datos. Atienden clientes 24/7 sin intervención humana.',
-    color: 'pink',
+    description: 'Bots que gestionan citas, ventas, compras y bases de datos — operando 24/7 sin intervención humana.',
+    features: ['Citas y reservas', 'Ventas automatizadas', 'Soporte 24/7'],
+    size: 'normal',
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>
-    </svg>`,
-    title: 'Integraciones Google Sheets',
-    description: 'Conecta Google Sheets y Excel con tus herramientas de negocio. Reportes automáticos, actualizaciones en tiempo real.',
-    color: 'cyan',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>`,
+    color: '#22d3ee', colorAlpha: 'rgba(34,211,238,.12)', colorBorder: 'rgba(34,211,238,.3)',
+    tag: 'Integraciones',
+    title: 'Google Sheets & Excel',
+    description: 'Sincronización en tiempo real con tus hojas de cálculo. Reportes que se actualizan solos.',
+    features: ['Sync en tiempo real', 'Dashboards automáticos'],
+    size: 'normal',
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>`,
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    color: '#f59e0b', colorAlpha: 'rgba(245,158,11,.12)', colorBorder: 'rgba(245,158,11,.3)',
+    tag: 'Web',
     title: 'Páginas Web con Chatbot',
-    description: 'Sitios web completos con chatbot embebido. Tu presencia digital que convierte visitantes en clientes de forma automática.',
-    color: 'gold',
+    description: 'Sitios web completos con chatbot integrado. Tu presencia digital que convierte visitantes en clientes automáticamente.',
+    features: ['Web + chatbot integrado', 'Captación de leads', 'Automatización total'],
+    size: 'large',
   },
 ];
 ---
 
-<section id="servicios" class="section">
-  <div class="container">
-    <h2 class="section-title reveal">
-      Nuestros <span class="gradient-text">Servicios</span>
+<section id="servicios" class="sec">
+  <div class="wrap">
+    <div class="sec-tag reveal"><span></span>Servicios</div>
+    <h2 class="sec-h reveal">
+      Todo lo que tu negocio<br/><span class="grad">necesita automatizar</span>
     </h2>
-    <p class="section-subtitle reveal">
-      Soluciones de automatización para cada área de tu negocio
+    <p class="sec-sub reveal">
+      Desde organizar archivos hasta crear un sistema de ventas completo — lo hacemos funcionar mientras tú te enfocas en crecer.
     </p>
 
-    <div class="services-grid">
-      {services.map((svc, i) => (
-        <article class={`service-card card-${svc.color} reveal`} style={`--delay: ${i * 100}ms`}>
-          <div class="card-icon" set:html={svc.icon} />
-          <h3 class="card-title">{svc.title}</h3>
-          <p class="card-desc">{svc.description}</p>
-          <div class="card-glow" aria-hidden="true"></div>
+    <!-- Bento grid -->
+    <div class="bento reveal">
+      {services.map((s) => (
+        <article
+          class={`bento-card bc-${s.size}`}
+          style={`--c:${s.color}; --ca:${s.colorAlpha}; --cb:${s.colorBorder};`}
+        >
+          <div class="bc-icon" set:html={s.icon} />
+          <div class="bc-tag">{s.tag}</div>
+          <h3 class="bc-title">{s.title}</h3>
+          <p class="bc-desc">{s.description}</p>
+          <ul class="bc-feats">
+            {s.features.map(f => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="bc-glow" aria-hidden="true"></div>
         </article>
       ))}
     </div>
@@ -61,94 +76,72 @@ const services = [
 </section>
 
 <style>
-  .section {
-    padding-block: var(--space-2xl);
-  }
-
-  .services-grid {
+  /* Bento grid */
+  .bento {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 1rem;
   }
-
-  @media (min-width: 640px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (min-width: 1024px) {
-    .services-grid { grid-template-columns: repeat(4, 1fr); }
+  @media(min-width:640px){ .bento{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:1024px){
+    .bento {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+    }
+    .bc-large:first-child { grid-column: span 2; }
+    .bc-large:last-child  { grid-column: span 2; }
   }
 
   /* Card */
-  .service-card {
-    position: relative;
-    padding: var(--space-xl) var(--space-lg);
-    border-radius: 16px;
-    background: oklch(0.14 0.04 275 / 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.55 0.28 295 / 0.12);
-    transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
-    overflow: hidden;
-    transition-delay: var(--delay, 0ms);
+  .bento-card {
+    position: relative; overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    transition: border-color var(--t), background var(--t), transform var(--t), box-shadow var(--t);
+  }
+  .bento-card:hover {
+    border-color: var(--cb);
+    background: var(--ca);
+    transform: translateY(-5px);
+    box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 40px color-mix(in srgb, var(--c) 20%, transparent);
   }
 
-  .service-card:hover {
-    transform: translateY(-6px);
-  }
-
-  .card-violet:hover { border-color: oklch(0.55 0.28 295 / 0.5); box-shadow: var(--glow-violet); }
-  .card-pink:hover   { border-color: oklch(0.65 0.22 345 / 0.5); box-shadow: var(--glow-pink); }
-  .card-cyan:hover   { border-color: oklch(0.72 0.16 200 / 0.5); box-shadow: var(--glow-cyan); }
-  .card-gold:hover   { border-color: oklch(0.78 0.15 60 / 0.4);  box-shadow: 0 0 30px oklch(0.78 0.15 60 / 0.25); }
-
-  /* Icon */
-  .card-icon {
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .bc-icon {
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 14px;
-    margin-bottom: var(--space-lg);
+    background: var(--ca); border: 1px solid var(--cb);
+    color: var(--c);
+    margin-bottom: 1.25rem;
   }
+  .bc-icon :global(svg) { width:26px; height:26px; }
 
-  .card-icon :global(svg) {
-    width: 28px;
-    height: 28px;
+  .bc-tag {
+    font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--c); margin-bottom:.5rem;
   }
-
-  .card-violet .card-icon { background: oklch(0.55 0.28 295 / 0.15); color: oklch(0.68 0.22 295); }
-  .card-pink .card-icon   { background: oklch(0.65 0.22 345 / 0.15); color: oklch(0.72 0.18 345); }
-  .card-cyan .card-icon   { background: oklch(0.72 0.16 200 / 0.15); color: var(--clr-nebula-cyan); }
-  .card-gold .card-icon   { background: oklch(0.78 0.15 60 / 0.15);  color: var(--clr-nebula-gold); }
-
-  .card-title {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
-    color: var(--clr-text);
+  .bc-title {
+    font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800;
+    margin-bottom:.65rem; color:var(--white);
   }
-
-  .card-desc {
-    font-size: var(--text-sm);
-    color: var(--clr-text-secondary);
-    line-height: 1.65;
+  .bc-desc {
+    font-size:.9rem; color:var(--gray-1); line-height:1.7; margin-bottom:1.2rem;
   }
-
-  /* Background glow on hover */
-  .card-glow {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity var(--t-base);
-    pointer-events: none;
-    border-radius: inherit;
+  .bc-feats {
+    list-style:none; display:flex; flex-direction:column; gap:.45rem;
   }
+  .bc-feats li {
+    display:flex; align-items:center; gap:.5rem;
+    font-size:.8rem; color:var(--gray-2);
+  }
+  .bc-feats li svg { color:var(--c); flex-shrink:0; }
 
-  .card-violet .card-glow { background: radial-gradient(circle at 20% 20%, oklch(0.55 0.28 295 / 0.08), transparent 60%); }
-  .card-pink .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.65 0.22 345 / 0.08), transparent 60%); }
-  .card-cyan .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.72 0.16 200 / 0.08), transparent 60%); }
-  .card-gold .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.78 0.15 60 / 0.08),  transparent 60%); }
-
-  .service-card:hover .card-glow { opacity: 1; }
+  /* Glow overlay on hover */
+  .bc-glow {
+    position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity var(--t);
+    background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--c) 12%, transparent), transparent 65%);
+  }
+  .bento-card:hover .bc-glow { opacity:1; }
 </style>

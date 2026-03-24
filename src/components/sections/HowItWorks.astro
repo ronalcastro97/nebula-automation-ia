@@ -1,64 +1,56 @@
 ---
 const steps = [
   {
-    number: '01',
+    n: '01', color: '#8b5cf6', ca: 'rgba(139,92,246,.12)', cb: 'rgba(139,92,246,.35)',
     title: 'Análisis',
-    desc: 'Analizamos tus procesos actuales e identificamos qué se puede automatizar para maximizar tu eficiencia.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>`,
+    desc: 'Auditamos tus procesos actuales e identificamos exactamente qué automatizar para el mayor impacto.',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
   },
   {
-    number: '02',
+    n: '02', color: '#22d3ee', ca: 'rgba(34,211,238,.12)', cb: 'rgba(34,211,238,.35)',
     title: 'Diseño',
-    desc: 'Diseñamos los flujos de automatización y configuramos las integraciones con tus herramientas existentes.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-    </svg>`,
+    desc: 'Diseñamos los flujos en N8N y configuramos todas las integraciones con tus herramientas actuales.',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
   },
   {
-    number: '03',
+    n: '03', color: '#ec4899', ca: 'rgba(236,72,153,.12)', cb: 'rgba(236,72,153,.35)',
     title: 'Implementación',
-    desc: 'Activamos los sistemas: chatbots, hojas de cálculo y flujos N8N. Pruebas completas antes del lanzamiento.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-    </svg>`,
+    desc: 'Activamos todo: chatbots, sincronizaciones y flujos. Pruebas completas antes del lanzamiento.',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
   },
   {
-    number: '04',
+    n: '04', color: '#f59e0b', ca: 'rgba(245,158,11,.12)', cb: 'rgba(245,158,11,.35)',
     title: 'Monitoreo',
-    desc: 'Supervisamos el rendimiento y optimizamos continuamente. Tu automatización siempre funcionando al máximo.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-    </svg>`,
+    desc: 'Supervisamos el rendimiento, optimizamos continuamente y te entregamos reportes de resultados.',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
   },
 ];
 ---
 
-<section id="proceso" class="section hiw-section">
-  <div class="container">
-    <h2 class="section-title reveal">
-      Cómo <span class="gradient-text">Funciona</span>
+<section id="proceso" class="sec hiw">
+  <div class="blob-hiw" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-tag reveal"><span></span>Proceso</div>
+    <h2 class="sec-h reveal">
+      De cero a <span class="grad">piloto automático</span><br/>en 4 pasos
     </h2>
-    <p class="section-subtitle reveal">
-      En 4 pasos, tu negocio opera en piloto automático
+    <p class="sec-sub reveal">
+      Un proceso claro, sin sorpresas. Sabemos exactamente cómo transformar tu operación.
     </p>
 
-    <div class="steps-grid">
-      {steps.map((step, i) => (
-        <div class="step reveal" style={`--delay: ${i * 120}ms`}>
-          <!-- Connector line (not on last) -->
-          {i < steps.length - 1 && (
-            <div class="connector" aria-hidden="true"></div>
-          )}
+    <div class="steps">
+      {steps.map((s, i) => (
+        <div class="step reveal" style={`--c:${s.color};--ca:${s.ca};--cb:${s.cb};--delay:${i*100}ms`}>
+          {i < steps.length - 1 && <div class="connector" aria-hidden="true"></div>}
 
-          <div class="step-number">{step.number}</div>
-
-          <div class="step-icon" set:html={step.icon} />
+          <div class="step-top">
+            <div class="step-num">{s.n}</div>
+            <div class="step-icon" set:html={s.icon} />
+          </div>
 
           <div class="step-body">
-            <h3 class="step-title">{step.title}</h3>
-            <p class="step-desc">{step.desc}</p>
+            <h3 class="step-title">{s.title}</h3>
+            <p class="step-desc">{s.desc}</p>
           </div>
         </div>
       ))}
@@ -67,108 +59,72 @@ const steps = [
 </section>
 
 <style>
-  .hiw-section {
-    padding-block: var(--space-2xl);
-    position: relative;
+  .hiw { position:relative; overflow:hidden; }
+  .blob-hiw {
+    position:absolute; width:600px; height:400px;
+    background:radial-gradient(ellipse, rgba(139,92,246,.07), transparent 70%);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    pointer-events:none;
   }
 
-  .hiw-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 50%, oklch(0.55 0.28 295 / 0.05), transparent 70%);
-    pointer-events: none;
+  .steps {
+    display:grid; grid-template-columns:1fr; gap:1.5rem;
+    position:relative;
   }
+  @media(min-width:640px){ .steps{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:1024px){ .steps{ grid-template-columns:repeat(4,1fr); gap:0; } }
 
-  .steps-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    position: relative;
-  }
-
-  @media (min-width: 768px) {
-    .steps-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-  }
-
-  /* Step */
+  /* Step card */
   .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: var(--space-xl) var(--space-md);
-    position: relative;
+    position:relative;
+    padding: 2rem 1.5rem;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--bg-card);
+    text-align:center;
+    transition: border-color var(--t), background var(--t), transform var(--t);
+    transition-delay: var(--delay, 0ms);
+  }
+  .step:hover {
+    border-color:var(--cb); background:var(--ca);
+    transform:translateY(-4px);
   }
 
-  /* Connector line (horizontal on desktop, hidden on mobile) */
-  .connector {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
+  /* Connector (desktop only) */
+  .connector { display:none; }
+  @media(min-width:1024px){
     .connector {
-      display: block;
-      position: absolute;
-      top: 2.5rem; /* aligns with step number center */
-      left: calc(50% + 2rem);
-      right: calc(-50% + 2rem);
-      height: 2px;
-      background: var(--gradient-nebula);
-      opacity: 0.4;
-      z-index: 0;
+      display:block; position:absolute;
+      top: 2.8rem; /* center of step-num */
+      left: calc(50% + 2.2rem); right: calc(-50% + 2.2rem);
+      height:1px;
+      background:linear-gradient(90deg, var(--c), transparent);
+      opacity:.5; z-index:0;
     }
   }
 
-  /* Number */
-  .step-number {
-    font-family: 'Orbitron', sans-serif;
-    font-size: var(--text-3xl);
-    font-weight: 900;
-    background: var(--gradient-nebula);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: var(--space-md);
-    position: relative;
-    z-index: 1;
+  .step-top {
+    display:flex; align-items:center; justify-content:center;
+    gap:.75rem; margin-bottom:1.4rem; position:relative; z-index:1;
   }
-
-  /* Icon */
+  .step-num {
+    font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800;
+    color:var(--c); line-height:1; min-width:3rem;
+  }
   .step-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: oklch(0.14 0.04 275 / 0.8);
-    border: 1px solid oklch(0.55 0.28 295 / 0.2);
-    margin-bottom: var(--space-lg);
-    color: oklch(0.68 0.22 295);
+    width:46px; height:46px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:12px; background:var(--ca); border:1px solid var(--cb);
+    color:var(--c);
   }
+  .step-icon :global(svg){ width:22px; height:22px; }
 
-  .step-icon :global(svg) {
-    width: 22px;
-    height: 22px;
-  }
-
-  /* Body */
   .step-title {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
+    font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800;
+    margin-bottom:.6rem; color:var(--white);
   }
-
   .step-desc {
-    font-size: var(--text-sm);
-    color: var(--clr-text-secondary);
-    line-height: 1.65;
-    max-width: 22ch;
-    margin-inline: auto;
+    font-size:.875rem; color:var(--gray-1); line-height:1.7;
+    max-width:22ch; margin-inline:auto;
   }
 </style>

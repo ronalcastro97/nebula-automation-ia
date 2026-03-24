@@ -1,138 +1,78 @@
 ---
 const year = new Date().getFullYear();
-
-const navLinks = [
-  { label: 'Inicio',     href: '#inicio' },
-  { label: 'Servicios',  href: '#servicios' },
-  { label: 'Proceso',    href: '#proceso' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Contacto',   href: '#contacto' },
+const links = [
+  { label:'Servicios', href:'#servicios' },
+  { label:'Proceso',   href:'#proceso'   },
+  { label:'Beneficios',href:'#beneficios'},
+  { label:'Contacto',  href:'#contacto'  },
 ];
 ---
 
 <footer>
-  <div class="container footer-inner">
-    <!-- Brand -->
-    <div class="footer-brand">
-      <a href="#inicio" class="logo-text">
-        Nebula<span class="logo-accent"> AI</span>
+  <div class="wrap ft-inner">
+    <div class="ft-brand">
+      <a href="#inicio" class="ft-logo">
+        Nebula<span class="grad"> AI</span>
       </a>
-      <p class="tagline">Automatización inteligente para negocios modernos.</p>
+      <p class="ft-tagline">Automatización inteligente para negocios modernos.</p>
     </div>
 
-    <!-- Quick links -->
-    <nav class="footer-nav" aria-label="Links del footer">
-      {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    <nav class="ft-nav">
+      <span class="ft-nav-hd">Navegación</span>
+      {links.map(l => <a href={l.href}>{l.label}</a>)}
     </nav>
 
-    <!-- Contact -->
-    <div class="footer-contact">
-      <p class="footer-label">Contacto</p>
-      <a href="mailto:hola@nebulaautomation.ia" class="footer-email">
-        hola@nebulaautomation.ia
-      </a>
+    <div class="ft-contact">
+      <span class="ft-nav-hd">Contacto</span>
+      <a href="mailto:hola@nebulaautomation.ia" class="ft-email">hola@nebulaautomation.ia</a>
     </div>
   </div>
 
-  <div class="footer-bottom">
+  <!-- Divider -->
+  <div class="ft-div"></div>
+
+  <div class="wrap ft-bottom">
     <p>© {year} Nebula Automation IA. Todos los derechos reservados.</p>
-    <p>Hecho con <span class="gradient-text">Astro</span> + <span class="gradient-text">React</span></p>
+    <p>Construido con <span class="grad">Astro + React</span></p>
   </div>
 </footer>
 
 <style>
   footer {
-    border-top: 1px solid oklch(0.55 0.28 295 / 0.12);
-    padding-top: var(--space-2xl);
-    margin-top: var(--space-2xl);
+    border-top:1px solid var(--border);
+    padding-top:clamp(2.5rem,6vw,4rem);
+    margin-top:clamp(2rem,4vw,3rem);
   }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    padding-bottom: var(--space-xl);
-    border-bottom: 1px solid oklch(0.55 0.28 295 / 0.08);
+  .ft-inner {
+    display:grid; grid-template-columns:1fr; gap:2.5rem;
+    padding-bottom:2.5rem;
   }
+  @media(min-width:640px){ .ft-inner{ grid-template-columns:2fr 1fr 1fr; } }
 
-  @media (min-width: 640px) {
-    .footer-inner {
-      grid-template-columns: 1fr 1fr;
-    }
+  .ft-logo {
+    font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800;
+    color:var(--white); display:inline-block; margin-bottom:.6rem;
   }
+  .ft-tagline { font-size:.85rem; color:var(--gray-2); max-width:28ch; line-height:1.5; }
 
-  @media (min-width: 1024px) {
-    .footer-inner {
-      grid-template-columns: 2fr 1fr 1fr;
-    }
+  .ft-nav-hd {
+    display:block; font-size:.7rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em;
+    color:var(--gray-2); margin-bottom:.85rem;
   }
+  .ft-nav { display:flex; flex-direction:column; gap:.55rem; }
+  .ft-nav a { font-size:.875rem; color:var(--gray-1); transition:color var(--t); }
+  .ft-nav a:hover { color:#a78bfa; }
 
-  .logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--clr-text);
-    display: inline-block;
-    margin-bottom: var(--space-sm);
-  }
+  .ft-contact { display:flex; flex-direction:column; }
+  .ft-email { font-size:.875rem; color:var(--gray-1); transition:color var(--t); word-break:break-all; }
+  .ft-email:hover { color:#22d3ee; }
 
-  .logo-accent {
-    background: var(--gradient-nebula);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .ft-div { height:1px; background:var(--border); margin:0 clamp(1.25rem,5vw,3rem); }
 
-  .tagline {
-    font-size: var(--text-sm);
-    color: var(--clr-text-muted);
-    max-width: 28ch;
-    line-height: 1.5;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .footer-nav a {
-    font-size: var(--text-sm);
-    color: var(--clr-text-secondary);
-    transition: color var(--t-fast);
-  }
-
-  .footer-nav a:hover {
-    color: var(--clr-nebula-violet-l);
-  }
-
-  .footer-label {
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--clr-text-muted);
-    margin-bottom: var(--space-sm);
-    font-weight: 600;
-  }
-
-  .footer-email {
-    font-size: var(--text-sm);
-    color: var(--clr-text-secondary);
-    transition: color var(--t-fast);
-    word-break: break-all;
-  }
-
-  .footer-email:hover {
-    color: var(--clr-nebula-cyan);
-  }
-
-  .footer-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-sm);
-    padding-block: var(--space-lg);
-    font-size: var(--text-xs);
-    color: var(--clr-text-muted);
+  .ft-bottom {
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:.5rem;
+    padding-block:1.5rem;
+    font-size:.78rem; color:var(--gray-2);
   }
 </style>

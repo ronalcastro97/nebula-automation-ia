@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://ronalcastro97.github.io',
+  base: '/nebula-automation-ia',
   output: 'static',
   integrations: [
     react(),
