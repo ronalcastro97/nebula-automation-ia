@@ -1,0 +1,138 @@
+---
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { label: 'Inicio',     href: '#inicio' },
+  { label: 'Servicios',  href: '#servicios' },
+  { label: 'Proceso',    href: '#proceso' },
+  { label: 'Beneficios', href: '#beneficios' },
+  { label: 'Contacto',   href: '#contacto' },
+];
+---
+
+<footer>
+  <div class="container footer-inner">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a href="#inicio" class="logo-text">
+        Nebula<span class="logo-accent"> AI</span>
+      </a>
+      <p class="tagline">Automatización inteligente para negocios modernos.</p>
+    </div>
+
+    <!-- Quick links -->
+    <nav class="footer-nav" aria-label="Links del footer">
+      {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <p class="footer-label">Contacto</p>
+      <a href="mailto:hola@nebulaautomation.ia" class="footer-email">
+        hola@nebulaautomation.ia
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© {year} Nebula Automation IA. Todos los derechos reservados.</p>
+    <p>Hecho con <span class="gradient-text">Astro</span> + <span class="gradient-text">React</span></p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid oklch(0.55 0.28 295 / 0.12);
+    padding-top: var(--space-2xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid oklch(0.55 0.28 295 / 0.08);
+  }
+
+  @media (min-width: 640px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--clr-text);
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .logo-accent {
+    background: var(--gradient-nebula);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: var(--text-sm);
+    color: var(--clr-text-muted);
+    max-width: 28ch;
+    line-height: 1.5;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-nav a {
+    font-size: var(--text-sm);
+    color: var(--clr-text-secondary);
+    transition: color var(--t-fast);
+  }
+
+  .footer-nav a:hover {
+    color: var(--clr-nebula-violet-l);
+  }
+
+  .footer-label {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .footer-email {
+    font-size: var(--text-sm);
+    color: var(--clr-text-secondary);
+    transition: color var(--t-fast);
+    word-break: break-all;
+  }
+
+  .footer-email:hover {
+    color: var(--clr-nebula-cyan);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-block: var(--space-lg);
+    font-size: var(--text-xs);
+    color: var(--clr-text-muted);
+  }
+</style>

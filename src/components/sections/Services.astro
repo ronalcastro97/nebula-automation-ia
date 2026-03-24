@@ -1,0 +1,154 @@
+---
+const services = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+      <line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/>
+    </svg>`,
+    title: 'Automatización de Datos',
+    description: 'Organiza archivos, categoriza información, limpia y estructura hojas de cálculo de forma automática. Di adiós al trabajo manual repetitivo.',
+    color: 'violet',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      <circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="12" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/>
+    </svg>`,
+    title: 'Chatbots Empresariales',
+    description: 'Chatbots que gestionan citas, ventas, compras y bases de datos. Atienden clientes 24/7 sin intervención humana.',
+    color: 'pink',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>
+    </svg>`,
+    title: 'Integraciones Google Sheets',
+    description: 'Conecta Google Sheets y Excel con tus herramientas de negocio. Reportes automáticos, actualizaciones en tiempo real.',
+    color: 'cyan',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>`,
+    title: 'Páginas Web con Chatbot',
+    description: 'Sitios web completos con chatbot embebido. Tu presencia digital que convierte visitantes en clientes de forma automática.',
+    color: 'gold',
+  },
+];
+---
+
+<section id="servicios" class="section">
+  <div class="container">
+    <h2 class="section-title reveal">
+      Nuestros <span class="gradient-text">Servicios</span>
+    </h2>
+    <p class="section-subtitle reveal">
+      Soluciones de automatización para cada área de tu negocio
+    </p>
+
+    <div class="services-grid">
+      {services.map((svc, i) => (
+        <article class={`service-card card-${svc.color} reveal`} style={`--delay: ${i * 100}ms`}>
+          <div class="card-icon" set:html={svc.icon} />
+          <h3 class="card-title">{svc.title}</h3>
+          <p class="card-desc">{svc.description}</p>
+          <div class="card-glow" aria-hidden="true"></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--space-2xl);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 640px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* Card */
+  .service-card {
+    position: relative;
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: 16px;
+    background: oklch(0.14 0.04 275 / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.55 0.28 295 / 0.12);
+    transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
+    overflow: hidden;
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card-violet:hover { border-color: oklch(0.55 0.28 295 / 0.5); box-shadow: var(--glow-violet); }
+  .card-pink:hover   { border-color: oklch(0.65 0.22 345 / 0.5); box-shadow: var(--glow-pink); }
+  .card-cyan:hover   { border-color: oklch(0.72 0.16 200 / 0.5); box-shadow: var(--glow-cyan); }
+  .card-gold:hover   { border-color: oklch(0.78 0.15 60 / 0.4);  box-shadow: 0 0 30px oklch(0.78 0.15 60 / 0.25); }
+
+  /* Icon */
+  .card-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .card-icon :global(svg) {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card-violet .card-icon { background: oklch(0.55 0.28 295 / 0.15); color: oklch(0.68 0.22 295); }
+  .card-pink .card-icon   { background: oklch(0.65 0.22 345 / 0.15); color: oklch(0.72 0.18 345); }
+  .card-cyan .card-icon   { background: oklch(0.72 0.16 200 / 0.15); color: var(--clr-nebula-cyan); }
+  .card-gold .card-icon   { background: oklch(0.78 0.15 60 / 0.15);  color: var(--clr-nebula-gold); }
+
+  .card-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--clr-text);
+  }
+
+  .card-desc {
+    font-size: var(--text-sm);
+    color: var(--clr-text-secondary);
+    line-height: 1.65;
+  }
+
+  /* Background glow on hover */
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--t-base);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .card-violet .card-glow { background: radial-gradient(circle at 20% 20%, oklch(0.55 0.28 295 / 0.08), transparent 60%); }
+  .card-pink .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.65 0.22 345 / 0.08), transparent 60%); }
+  .card-cyan .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.72 0.16 200 / 0.08), transparent 60%); }
+  .card-gold .card-glow   { background: radial-gradient(circle at 20% 20%, oklch(0.78 0.15 60 / 0.08),  transparent 60%); }
+
+  .service-card:hover .card-glow { opacity: 1; }
+</style>

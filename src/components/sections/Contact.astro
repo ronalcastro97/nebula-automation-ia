@@ -1,0 +1,174 @@
+---
+import ContactForm from '../react/ContactForm.tsx';
+---
+
+<section id="contacto" class="section contact-section">
+  <!-- Background decoration -->
+  <div class="contact-glow" aria-hidden="true"></div>
+
+  <div class="container">
+    <h2 class="section-title reveal">
+      Comienza <span class="gradient-text">Hoy</span>
+    </h2>
+    <p class="section-subtitle reveal">
+      Cuéntanos sobre tu negocio y te mostramos cómo podemos automatizarlo
+    </p>
+
+    <div class="contact-layout">
+      <!-- Info side -->
+      <div class="contact-info reveal">
+        <h3 class="info-title">¿Listo para automatizar?</h3>
+        <p class="info-text">
+          Nuestro equipo analizará tu caso de forma gratuita y te propondrá la solución
+          ideal para tu negocio. Sin compromiso.
+        </p>
+
+        <ul class="info-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Consultoría inicial gratuita</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Respuesta en menos de 24 horas</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Propuesta personalizada para tu negocio</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Sin contratos de largo plazo al inicio</span>
+          </li>
+        </ul>
+
+        <div class="contact-direct">
+          <p class="direct-label">O escríbenos directamente:</p>
+          <a href="mailto:hola@nebulaautomation.ia" class="direct-email">
+            hola@nebulaautomation.ia
+          </a>
+        </div>
+      </div>
+
+      <!-- Form side (React island) -->
+      <div class="contact-form-wrap reveal" style="--delay: 150ms">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-block: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-glow {
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 60vh;
+    background: radial-gradient(ellipse, oklch(0.55 0.28 295 / 0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 900px) {
+    .contact-layout {
+      grid-template-columns: 1fr 1.4fr;
+      align-items: start;
+    }
+  }
+
+  /* Info */
+  .info-title {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+  }
+
+  .info-text {
+    font-size: var(--text-base);
+    color: var(--clr-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+
+  .info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .info-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-base);
+    color: var(--clr-text-secondary);
+  }
+
+  .info-list li svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: oklch(0.68 0.22 295);
+  }
+
+  .contact-direct {
+    padding: var(--space-lg);
+    border-radius: 12px;
+    background: oklch(0.14 0.04 275 / 0.5);
+    border: 1px solid oklch(0.55 0.28 295 / 0.15);
+  }
+
+  .direct-label {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+  }
+
+  .direct-email {
+    font-size: var(--text-base);
+    color: var(--clr-nebula-cyan);
+    font-weight: 600;
+    transition: color var(--t-fast);
+  }
+
+  .direct-email:hover {
+    color: oklch(0.85 0.12 200);
+  }
+
+  /* Form wrapper */
+  .contact-form-wrap {
+    background: oklch(0.12 0.03 275 / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(0.55 0.28 295 / 0.15);
+    border-radius: 20px;
+    padding: var(--space-xl);
+  }
+</style>
