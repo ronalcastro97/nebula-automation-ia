@@ -32,7 +32,7 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormData>(INIT);
   const [status, setStatus] = useState<Status>('idle');
   const [focused, setFocused] = useState('');
-  const url = import.meta.env.PUBLIC_N8N_WEBHOOK_URL;
+  const url = import.meta.env.PUBLIC_N8N_WEBHOOK_URL || 'https://berformett97.app.n8n.cloud/webhook/nebula-contacto';
 
   const change = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
     setForm(p => ({...p, [e.target.name]: e.target.value}));
@@ -41,10 +41,11 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus('loading');
     try {
+      const body = new URLSearchParams({...form, timestamp: new Date().toISOString()});
       const r = await fetch(url, {
         method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({...form, timestamp: new Date().toISOString()}),
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: body.toString(),
       });
       if (!r.ok) throw new Error();
       setStatus('success'); setForm(INIT);
