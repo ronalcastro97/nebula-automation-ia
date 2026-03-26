@@ -1,4 +1,6 @@
 ---
+import ChatWidget from '../components/react/ChatWidget.tsx';
+
 interface Props {
   title?: string;
   description?: string;
@@ -26,6 +28,7 @@ const {
   </head>
   <body>
     <slot />
+    <ChatWidget client:load />
   </body>
   <script>
     // Scroll reveal
