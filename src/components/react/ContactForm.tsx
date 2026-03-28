@@ -145,8 +145,8 @@ export default function ContactForm() {
           background:'rgba(239,68,68,.1)', border:'1px solid rgba(239,68,68,.3)',
           color:'#fca5a5', fontSize:'.85rem',
         }}>
-          Algo salió mal. Escríbenos a <a href="mailto:hola@nebulaautomation.ia"
-            style={{color:'#f87171', textDecoration:'underline'}}>hola@nebulaautomation.ia</a>
+          Algo salió mal. Escríbenos a <a href="mailto:castroronal718@gmail.com"
+            style={{color:'#f87171', textDecoration:'underline'}}>castroronal718@gmail.com</a>
         </div>
       )}
 

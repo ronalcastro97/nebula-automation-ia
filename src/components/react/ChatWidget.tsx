@@ -62,7 +62,7 @@ export default function ChatWidget() {
       const reply = data.reply || data.respuesta || data.text || 'No pude procesar tu consulta.';
       setMessages(m => [...m, { role: 'bot', text: reply }]);
     } catch {
-      setMessages(m => [...m, { role: 'bot', text: 'Hubo un error. Por favor escríbenos directamente a hola@nebulaautomation.ia' }]);
+      setMessages(m => [...m, { role: 'bot', text: 'Hubo un error. Por favor escríbenos directamente a castroronal718@gmail.com' }]);
     }
     setLoading(false);
   };
