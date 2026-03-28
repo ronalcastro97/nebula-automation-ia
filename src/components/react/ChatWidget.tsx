@@ -5,7 +5,7 @@ interface Message {
   text: string;
 }
 
-const WHATSAPP_NUMBER = '573000000000'; // Cambia por tu número real
+const WHATSAPP_NUMBER = '573128913392';
 const CHATBOT_WEBHOOK = 'https://berformett97.app.n8n.cloud/webhook/nebula-chat';
 
 const WELCOME: Message = {
