@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          PUBLIC_N8N_WEBHOOK_URL: ${{ secrets.PUBLIC_N8N_WEBHOOK_URL }}
+          PUBLIC_SHEETS_WEBHOOK_URL: ${{ secrets.PUBLIC_SHEETS_WEBHOOK_URL }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

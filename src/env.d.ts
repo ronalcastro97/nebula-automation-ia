@@ -2,7 +2,7 @@
 /// <reference types="astro/client" />
 
 interface ImportMetaEnv {
-  readonly PUBLIC_N8N_WEBHOOK_URL: string;
+  readonly PUBLIC_SHEETS_WEBHOOK_URL: string;
 }
 
 interface ImportMeta {

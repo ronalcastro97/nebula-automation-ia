@@ -32,7 +32,8 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormData>(INIT);
   const [status, setStatus] = useState<Status>('idle');
   const [focused, setFocused] = useState('');
-  const url = import.meta.env.PUBLIC_N8N_WEBHOOK_URL || 'https://berformett97.app.n8n.cloud/webhook/nebula-contacto';
+  // URL de la Web App de Google Apps Script que guarda cada mensaje en Google Sheets
+  const url = import.meta.env.PUBLIC_SHEETS_WEBHOOK_URL;
 
   const change = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
     setForm(p => ({...p, [e.target.name]: e.target.value}));
@@ -41,13 +42,12 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus('loading');
     try {
-      const body = new URLSearchParams({...form, timestamp: new Date().toISOString()});
-      const r = await fetch(url, {
-        method:'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-        body: body.toString(),
-      });
-      if (!r.ok) throw new Error();
+      if (!url) throw new Error('Falta PUBLIC_SHEETS_WEBHOOK_URL');
+      const body = new URLSearchParams({...form, origen: window.location.href});
+      // Petición "simple" (form-urlencoded, sin headers extra) para evitar el preflight CORS de Apps Script
+      const r = await fetch(url, { method:'POST', body });
+      const res = await r.json().catch(() => null);
+      if (!r.ok || !res?.ok) throw new Error(res?.error || 'No se pudo guardar el mensaje');
       setStatus('success'); setForm(INIT);
     } catch { setStatus('error'); }
   };
@@ -119,11 +119,11 @@ export default function ContactForm() {
           onFocus={()=>setFocused('servicio')} onBlur={()=>setFocused('')}
           style={{...iStyle('servicio'), cursor:'pointer'}} disabled={status==='loading'}>
           <option value="" disabled>Selecciona un servicio...</option>
-          <option value="automatizacion-datos">Automatización de Datos</option>
-          <option value="chatbot">Chatbot Empresarial</option>
-          <option value="google-sheets">Google Sheets / Excel</option>
-          <option value="pagina-web">Página Web con Chatbot</option>
-          <option value="otro">Otro / No sé por dónde empezar</option>
+          <option value="Agentes de IA">Agentes de IA</option>
+          <option value="Chatbot con IA">Chatbot con IA</option>
+          <option value="Automatización con IA">Automatización con IA (datos, Sheets, Excel)</option>
+          <option value="Página web con agente IA">Página web con agente IA</option>
+          <option value="Otro / No sé">Otro / No sé por dónde empezar</option>
         </select>
       </div>
 
